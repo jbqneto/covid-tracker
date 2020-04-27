@@ -22,7 +22,11 @@ public class CoronaVirus {
 	
 	private static List<CovidData> covidList = new ArrayList<CovidData>();
 	
-	public void fetchVirusData() throws Exception {
+	public static List<CovidData> getCovidList() {
+		return covidList;
+	}
+	
+	public void fetchVirusData() {
 	
 		HttpClient client = HttpClients.createDefault();
 		HttpGet request = new HttpGet(DATA_CONFIRMED_URL);
@@ -61,7 +65,7 @@ public class CoronaVirus {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-			throw new Exception("Error GETTing data on github: " + e.getMessage());
+			System.out.println("Error GETTing data on github: " + e.getMessage());
 		}
 		
 		
