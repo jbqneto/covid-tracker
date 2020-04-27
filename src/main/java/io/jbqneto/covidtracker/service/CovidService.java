@@ -37,15 +37,15 @@ public class CovidService {
 	}
 	
 	@PostConstruct
-	@Scheduled(cron="30 2 * * * *")
+	@Scheduled(cron="* * 1 * * *")
 	public void getVirusData() throws IOException, InterruptedException {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 	    LocalDateTime now = LocalDateTime.now(); 
-	    fetchVirusData();
-		System.out.println("UPDATED AT: " + dtf.format(now));
+	    fetchConfirmedData();
+		System.out.println("LAST UPDATED: " + dtf.format(now));
 	}
 
-	private static void fetchVirusData() {
+	private static void fetchConfirmedData() {
 	
 		HttpClient client = HttpClients.createDefault();
 		HttpGet request = new HttpGet(DATA_CONFIRMED_URL);
