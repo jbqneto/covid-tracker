@@ -6,6 +6,10 @@ Although i´ve followed an *youtube tutorial* there are some differences on my c
 
 * The original package name 'io.jbqneto.covid-tracker' is invalid and this project uses 'io.jbqneto.covidtracker' instead.
 
+## Branch
+
+This branch contains what the tutorial proposed to do, with some small changes. Latter on *MASTER* more things will be implemented.
+
 ## Technology used
 | Tech | Use |
 | ------ | ------ |
