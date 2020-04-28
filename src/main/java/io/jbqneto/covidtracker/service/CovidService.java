@@ -91,7 +91,6 @@ public class CovidService {
 					
 					if (count == 0) {
 						headers = record.toMap().keySet().toArray(new String[0]);
-						System.out.println(headers);
 					}
 					
 				    String state = record.get("Province/State");
