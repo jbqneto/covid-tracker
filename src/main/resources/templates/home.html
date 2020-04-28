@@ -8,32 +8,38 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-	<div class="title">
-		<h1>Corona víruuuuuuuuuus</h1>
-	</div>
-	<div class="container">
-		<div class="table-body">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Contry</th>
-						<th>State</th>
-						<th>Cases reported</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="case: ${cases}">
-						<td th:text="${case.country}">Country</td>
-						<td th:text="${case.state}">State</td>
-						<td th:text="${case.latestTotalCases}">0</td>
-					</tr>
-				</tbody>
-			</table>
+	<header>
+		<h1>Coronavirus Tracker</h1>
+	</header>
+	<section>
+		<div class="container">
+			<div class="jumbotron">
+				<h2 class="display-4" th:text="${#numbers.formatDecimal(totalCases, 0, 'COMMA', 2, 'POINT')}"></h2>
+				<p class="lead">Total cases reported <b>today</b></p>
+			</div>
+			<div class="table-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Contry</th>
+							<th>State</th>
+							<th>Cases reported</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="case: ${cases}">
+							<td th:text="${case.country}">Country</td>
+							<td th:text="${case.state}">State</td>
+							<td th:text="${case.latestTotalCases}">0</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table-footer">
+				<span class="title">Total</span> <span class="count"
+					th:text="${totalCases}"></span>
+			</div>
 		</div>
-		<div class="table-footer">
-			<span class="title">Total</span> <span class="count"
-				th:text="${totalCases}"></span>
-		</div>
-	</div>
+	</section>
 </body>
 </html>
