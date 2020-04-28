@@ -15,7 +15,8 @@
 		<div class="container">
 			<div class="jumbotron">
 				<h2 class="display-4" th:text="${#numbers.formatDecimal(totalCases, 0, 'COMMA', 2, 'POINT')}"></h2>
-				<p class="lead">Total cases reported <b>today</b></p>
+				<p class="lead">Total cases reported on <b th:text="${queryDate}"></b></p>
+				<p><small>Last update:<span th:text="${updated}"></span></small></p>
 			</div>
 			<div class="table-body">
 				<table class="table">
