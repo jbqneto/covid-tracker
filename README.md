@@ -6,6 +6,11 @@ Although i´ve followed an *youtube tutorial* there are some differences on my c
 
 * The original package name 'io.jbqneto.covid-tracker' is invalid and this project uses 'io.jbqneto.covidtracker' instead.
 
+## Branchs and Features
+
+* BRANCH [master-tutorial] - branch containing the code and content that fits the youtube tutorial needs.
+* FEATURE [show-deaths-and-recovered] - Show not only confirmed cases but also recovered and deaths by coronavirus.
+
 ## Technology used
 | Tech | Use |
 | ------ | ------ |
