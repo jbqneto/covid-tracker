@@ -14,8 +14,10 @@
 	<section>
 		<div class="container">
 			<div class="jumbotron">
-				<h2 class="display-4" th:text="${#numbers.formatDecimal(totalCases, 0, 'COMMA', 2, 'POINT')}"></h2>
-				<p class="lead">Total cases reported on <b th:text="${queryDate}"></b></p>
+				<h2 class="display-4" th:text="${#numbers.formatDecimal(totalConfirmed, 0, 'COMMA', 2, 'POINT')}"></h2>
+				<p class="lead">Total Recoverd: <b th:text="${totalRecovered}"></b></p>
+				<p class="lead">Total Deaths: <b th:text="${totalDeaths}"></b></p>
+				<p><small>Total cases reported on <b th:text="${queryDate}"></b></small></p>
 				<p><small>Last update:<span th:text="${updated}"></span></small></p>
 			</div>
 			<div class="table-body">
@@ -23,22 +25,24 @@
 					<thead>
 						<tr>
 							<th>Contry</th>
-							<th>State</th>
-							<th>Cases reported</th>
+							<th>Cases confirmed</th>
+							<th>Recovered</th>
+							<th>Deaths</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="case: ${cases}">
 							<td th:text="${case.country}">Country</td>
-							<td th:text="${case.state}">State</td>
-							<td th:text="${case.latestTotalCases}">0</td>
+							<td th:text="${case.totalConfirmed}">0</td>
+							<td th:text="${case.totalRecovered}">0</td>
+							<td th:text="${case.totalDeaths}">0</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="table-footer">
-				<span class="title">Total</span> <span class="count"
-					th:text="${totalCases}"></span>
+				<span style="text-align: left" class="title">Total Confirmed</span>
+				<span style="text-align: right" class="count" th:text="${totalConfirmed}"></span>
 			</div>
 		</div>
 	</section>
