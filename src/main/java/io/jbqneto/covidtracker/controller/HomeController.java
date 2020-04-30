@@ -21,12 +21,19 @@ public class HomeController {
 		List<CovidData> covidCases = covidService.getData();
 		
 		try {
-			if (covidCases.size() == 0)
+			if (covidCases.size() == 0) {
 				covidService.getVirusData();
+				covidCases = covidService.getData();
+			}
 			
-			int totalCases = covidCases.stream().mapToInt(stat -> stat.getLatestTotalCases()).sum();
+			int totalConfirmed = covidCases.stream().mapToInt(covid -> covid.getTotalConfirmed()).sum();
+			int totalDeaths = covidCases.stream().mapToInt(covid -> covid.getTotalDeaths()).sum();
+			int totalRecovered = covidCases.stream().mapToInt(covid -> covid.getTotalRecovered()).sum();
+			
 			model.addAttribute("cases", covidCases);
-			model.addAttribute("totalCases", totalCases);
+			model.addAttribute("totalConfirmed", totalConfirmed);
+			model.addAttribute("totalDeaths", totalDeaths);
+			model.addAttribute("totalRecovered", totalRecovered);
 			model.addAttribute("updated", covidService.getLastUpdated());
 			model.addAttribute("queryDate", covidService.getQueryDate());
 			
