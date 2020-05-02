@@ -10,6 +10,7 @@ Although i´ve followed an *youtube tutorial* there are some differences on my c
 
 * BRANCH [master-tutorial] - branch containing the code and content that fits the youtube tutorial needs.
 * FEATURE [show-deaths-and-recovered] - Show not only confirmed cases but also recovered and deaths by coronavirus.
+* FEATURE [show-us-data] - GET US data (separated csv file) and show on table (confirmed, recovered and deaths)
 
 ## Technology used
 | Tech | Use |
