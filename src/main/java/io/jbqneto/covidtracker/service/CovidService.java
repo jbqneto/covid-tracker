@@ -53,13 +53,29 @@ public class CovidService {
 	}
 	
 	public String getLastUpdated() {
+		if(lastUpdated == null)
+			return "";
+		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"); 
 		return dtf.format(lastUpdated);
 	}
 	
 	@PostConstruct
-	@Scheduled(cron="* * 1 * * *")
-	public void getVirusData() throws IOException, InterruptedException {
+	@Scheduled(fixedDelay = (1 * 60 * 60 * 1000))
+	public void updateVirusData() throws IOException, InterruptedException {
+		try {
+			System.out.println("Service running reloaded at: " + LocalDateTime.now());
+			getVirusData();
+		} catch (IOException io) {
+			throw io;
+		} catch (InterruptedException ie) {
+			throw ie;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	public void getVirusData() throws Exception { 
 		HashMap<String, CovidData> mapCountryData = new HashMap<String, CovidData>();
 		
 		try {			
